@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+         <link rel='stylesheet' href='/stylesheet.css' />
+         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+    </head>
+    <body>
+
+        
+        <nav class="navbar navbar-inverse  navbar-expand-md" style="background-color: black ;border-bottom: 3px solid red">
+            <a href="/dashboard" class="navbar-brand navbarTextColor fixed-link" >Password Management System</a>
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span  style="color:red"> <i class="fas fa-bars"></i></span> 
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item active">
+                        <a href="/dashboard" class="nav-link nonactive-link">Home</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a href="/viewAllCategory" class="nav-link active-link">View All Category</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nonactive-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded='false'>
+                            Password Details
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/addNewPassword">Add New Password</a>
+                            <a class="dropdown-item" href="/viewAllPassword">View All Password</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="navbar-header ml-auto text-light" style="float:right;">
+                    <label for="categoryname" >Loggedin As: </label>
+                        <label value="" class="text-warning"><% if(loginUser){ %> <%= loginUser %> <% } %></label>
+                        <a class="ml-3 fixed-link" href="/logout">Logout</a>
+                    
+                 </div>
+                    
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+              <div id="addPassword" style="margin-top:50px" class="col-md-8 offset-md-2 ">
+                <div class="card">
+                    <div class="card-title  navbarTextColor text-center"><h4 class="ml-4" style="color:yellow">Edit Category</h4></div>
+                    <div class="card-text">                        
+                        <form action="/savecategory" method="post">
+                            <% if(success!=''){ %>
+                                <p style="text-align: center"; class="text-success" > <%= success %> </p>
+                                <%}%>
+                                <% if(warning!=''){ %>
+                                    <p style="text-align: center"; class="text-danger"> <%= warning %> </p>
+                                    <%}%>
+                            <input type="text" value="<%= id %>" name="getid" style="visibility:hidden" />
+                            <div class="form-group row fontSize">
+                                <div class="ml-4 col-sm-4 text-light">
+                                    <label for="pass_category">Enter Category </label>
+                                </div>
+                                <div class="ml-4 col-sm-6">
+                                    <input type="text" class="form-control" value="<%= category %>" name="pass_category" placeholder="Your Password Category" required /> 
+                                </div>
+                                
+                            </div>
+                            <div class="form-group row fontSize">
+                                <div class=" ml-4  col-sm-5 text-light">
+                                    <input type="submit" class="btn btn-success" value="save category">
+                                </div>
+                            </div>
+
+
+                            
+                        </form>
+                        <p class="ml-4"><a href="/viewAllCategory">View All Category Lists</a></p>
+
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+       
+
+
+    </body>
+</html>
