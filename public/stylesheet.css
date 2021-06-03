@@ -1,0 +1,43 @@
+body{
+    background-color:rgba(0, 0, 0, 0.904)
+}
+.card{
+    background-color:rgba(0, 0, 0, 0.904)
+
+}
+
+.fontSize{
+    font-size: 22px;
+    margin-top:15px;
+}
+.card{
+    border: 1px solid rgb(68, 106, 189);
+}
+.navbarTextColor{
+    color:red;
+}
+.active-link{
+    color:rgb(255, 238, 0);
+}
+
+.active-link:hover{
+    color:rgba(255, 238, 0, 0.726);
+}
+.nonactive-link{
+    color:white;
+}
+
+.nonactive-link:hover{
+    color: rgba(255, 255, 255, 0.685);
+}
+.fixed-link{
+    color:red;
+}
+.fixed-link:hover{
+    color:rgba(255, 0, 0, 0.753);
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: rgba(128, 128, 128, 0.486); // Choose your own color here
+ }
